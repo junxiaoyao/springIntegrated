@@ -20,6 +20,6 @@ public class MySpringInitializer extends AbstractAnnotationConfigDispatcherServl
     //映射DispatchServlet到/
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/"};
+        return new String[]{"/","*.service"};
     }
 }

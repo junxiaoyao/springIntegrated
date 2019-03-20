@@ -29,7 +29,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        super.configure(web);
+       super.configure(web);
     }
 
     @Override

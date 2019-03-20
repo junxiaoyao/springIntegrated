@@ -85,6 +85,12 @@
       <artifactId>hibernate-core</artifactId>
       <version>${hibernateVsersion}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.caucho/hessian -->
+    <dependency>
+      <groupId>com.caucho</groupId>
+      <artifactId>hessian</artifactId>
+      <version>4.0.38</version>
+    </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-hibernate -->
     <!-- <dependency>
@@ -115,6 +121,11 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-web</artifactId>
+      <version>${springSecurityVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-remoting</artifactId>
       <version>${springSecurityVersion}</version>
     </dependency>
     <dependency>
