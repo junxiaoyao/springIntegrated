@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.jxy.config.securityConfig","com.jxy.remoteService"},
+@ComponentScan(basePackages = {"com.jxy.config.securityConfig","com.jxy.remoteService","com.jxy.jms"},
         excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,value = EnableWebMvc.class)})
 public class MyRootConfig {
 }
