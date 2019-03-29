@@ -37,14 +37,18 @@ public class FirstJmsServiceImpl implements FirstJmsService {
 
     @Override
     public UserInfo getMessage() {
-        try {
-//            ObjectMessage message = (ObjectMessage) jmsTemplate.receive("userInfoQueue");
-//            return (UserInfo) message.getObject();
-            ObjectMessage message = (ObjectMessage) jmsTemplate.receive();
-            return (UserInfo) message.getObject();
-        } catch (JMSException e) {
-            //e.printStackTrace();
-            throw JmsUtils.convertJmsAccessException(e);
-        }
+        return (UserInfo) jmsTemplate.receiveAndConvert();
     }
+//    @Override
+//    public UserInfo getMessage() {
+//        try {
+////            ObjectMessage message = (ObjectMessage) jmsTemplate.receive("userInfoQueue");
+////            return (UserInfo) message.getObject();
+//            ObjectMessage message = (ObjectMessage) jmsTemplate.receive();
+//            return (UserInfo) message.getObject();
+//        } catch (JMSException e) {
+//            //e.printStackTrace();
+//            throw JmsUtils.convertJmsAccessException(e);
+//        }
+//    }
 }
