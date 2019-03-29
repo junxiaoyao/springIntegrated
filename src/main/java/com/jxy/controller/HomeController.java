@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,11 +29,12 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-   /* @Autowired
-    private FirstJmsService jmsService;*/
+    @Autowired
+    private FirstJmsService jmsService;
+
     @RequestMapping(method = RequestMethod.GET)
     public String home(HttpServletRequest request, Model model) {
-       // UserInfo info=jmsService.getMessage();
+        UserInfo info = jmsService.getMessage();
         Map<String, Object> user = new HashMap<>();
         user.put("userName", "jxy");
         model.addAttribute("user", user);
@@ -41,10 +43,10 @@ public class HomeController {
 
     @RequestMapping("login")
     public String loginGet(HttpServletRequest request) {
-        UserInfo info=new UserInfo();
+        UserInfo info = new UserInfo();
         info.setUserName("user");
-        info.setMsg("我登录了");
-    //    jmsService.sendMessage(info);
+        info.setMsg("我登录了,time:" + Calendar.getInstance().getTime().toString());
+        jmsService.sendMessage(info);
         return "login";
     }
 
