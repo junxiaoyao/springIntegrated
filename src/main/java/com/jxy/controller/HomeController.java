@@ -1,5 +1,7 @@
 package com.jxy.controller;
 
+import com.jxy.entity.UserInfo;
+import com.jxy.jmsService.FirstJmsService;
 import com.jxy.security.UserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -26,8 +28,11 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+   /* @Autowired
+    private FirstJmsService jmsService;*/
     @RequestMapping(method = RequestMethod.GET)
     public String home(HttpServletRequest request, Model model) {
+       // UserInfo info=jmsService.getMessage();
         Map<String, Object> user = new HashMap<>();
         user.put("userName", "jxy");
         model.addAttribute("user", user);
@@ -36,6 +41,10 @@ public class HomeController {
 
     @RequestMapping("login")
     public String loginGet(HttpServletRequest request) {
+        UserInfo info=new UserInfo();
+        info.setUserName("user");
+        info.setMsg("我登录了");
+    //    jmsService.sendMessage(info);
         return "login";
     }
 
